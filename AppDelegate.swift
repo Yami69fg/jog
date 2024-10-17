@@ -1,35 +1,20 @@
 import UIKit
-import AVFoundation
-import AppsFlyerLib
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
 
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        AppsFlyerLib.shared().start()
-    }
-    
-    public var interfaceMaskForOnFrenzyGameField: UIInterfaceOrientationMask = .portrait
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppsFlyerLib.shared().appsFlyerDevKey = "ECQCmczrGzgFKbgCHTjWqG"
-        AppsFlyerLib.shared().appleAppID = "6736921573"
-        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 6)
-      
-       
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = UINavigationController(rootViewController: LoadingController())
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
-    static var allOrientationStatus = UIInterfaceOrientationMask.all
-    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return AppDelegate.allOrientationStatus
+        return .portrait
     }
-  
-
-    
 }
-
-
