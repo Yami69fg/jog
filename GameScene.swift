@@ -332,7 +332,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             run(soundAction)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            self.screen?.gameOver(score: self.score, time: self.countdown, level: self.selectedLevel, target: self.levelTime)}
+            self.screen?.gameOverSettings(score: self.score, time: self.countdown, level: self.selectedLevel, target: self.levelTime)}
         for ball in balls {
             ball.removeFromParent()
         }

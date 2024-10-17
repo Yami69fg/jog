@@ -12,13 +12,13 @@ class LoadingGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        setupUI()
+        setupInterface()
         startBallJumping()
         startLoadingImageAnimation()
         transitionToMainMenu()
     }
     
-    func setupUI() {
+    func setupInterface() {
         view.addSubview(backgroundImageView)
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.snp.makeConstraints { make in

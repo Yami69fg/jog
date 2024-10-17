@@ -35,7 +35,7 @@ class MainGameViewControllerForGameScene: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupButtons()
+        setupMainButton()
         
         if let view = self.view as! SKView? {
             let scene = GameScene(size: view.bounds.size, level: selectedLevel, backG: levelInfo[selectedLevel-1].back, targetTime: levelInfo[selectedLevel-1].targetTime)
@@ -48,7 +48,7 @@ class MainGameViewControllerForGameScene: UIViewController {
             }
         }
 
-    func setupButtons() {
+    func setupMainButton() {
         pauseGameButton.setImage(UIImage(named: "PauseButton"), for: .normal)
         pauseGameButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
         pauseGameButton.frame = CGRect(x: 20, y: 40, width: 50, height: 50)
@@ -86,18 +86,18 @@ class MainGameViewControllerForGameScene: UIViewController {
         present(settingsVc, animated: false)
     }
     
-    func gameOver(score: Int, time: Int, level: Int, target:Int){
+    func gameOverSettings(score: Int, time: Int, level: Int, target:Int){
         var gameOver = GameOverMainViewController(img: "TryNow",score: score)
         if time == 0 && level < 7 {
             if UserDefaults.standard.integer(forKey: "lastCompletedLevel") <= selectedLevel {
                 let levelController = LevelViewController()
-                levelController.completeLevel(selectedLevel)
+                levelController.readyLevel(selectedLevel)
             }
             gameOver = GameOverMainViewController(img: "YouWin",score: score)
         } else if score >= target && level > 6 {
             if UserDefaults.standard.integer(forKey: "lastCompletedLevel") <= selectedLevel {
                 let levelController = LevelViewController()
-                levelController.completeLevel(selectedLevel)
+                levelController.readyLevel(selectedLevel)
             }
             gameOver = GameOverMainViewController(img: "YouWin",score: score)
         }

@@ -11,10 +11,10 @@ class MainGameMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        setupUI()
+        setupInterface()
     }
     
-    func setupUI() {
+    func setupInterface() {
         
         view.addSubview(backgroundImageView)
         backgroundImageView.contentMode = .scaleAspectFill

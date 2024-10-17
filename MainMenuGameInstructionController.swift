@@ -16,7 +16,7 @@ class MainMenuGameInstructionController: UIViewController {
         exitToMainButton.setImage(UIImage(named: "ExitButton"), for: .normal)
         audioAdd(button: exitToMainButton)
         exitToMainButton.layer.zPosition = 10
-        exitToMainButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        exitToMainButton.addTarget(self, action: #selector(outController), for: .touchUpInside)
         
         view.addSubview(exitToMainButton)
         
@@ -151,7 +151,7 @@ class MainMenuGameInstructionController: UIViewController {
         }
     }
     
-    @objc private func dismissController() {
+    @objc private func outController() {
         dismiss(animated: false)
     }
 }

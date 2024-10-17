@@ -4,10 +4,10 @@ import AVFoundation
 
 extension UIViewController {
     func audioAdd(button: UIButton) {
-        button.addTarget(self, action: #selector(downscale(sender: )), for: .touchDown)
+        button.addTarget(self, action: #selector(down(sender: )), for: .touchDown)
     }
     
-    @objc private func downscale(sender: UIButton) {
+    @objc private func down(sender: UIButton) {
         AudioManager.shared.audioAdd()
         sender.transform = CGAffineTransformMakeScale(0.95, 0.95)
     }
@@ -20,7 +20,7 @@ class AudioManager {
 
     private init() {}
     
-    func vibro() {
+    func vibration() {
         let isVibroOn = UserDefaults.standard.bool(forKey: "isVibroOn")
         if isVibroOn {
             let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -39,7 +39,7 @@ class AudioManager {
     
     func audioAdd() {
         sound()
-        vibro()
+        vibration()
     }
 }
 
